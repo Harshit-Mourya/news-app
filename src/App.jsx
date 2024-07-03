@@ -1,10 +1,10 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import NewsApp from "./components/NewsApp.jsx";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <NewsApp />
     </>
   );
 }

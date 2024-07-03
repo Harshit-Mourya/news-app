@@ -1,0 +1,64 @@
+.Navbar {
+  background-color: rgb(66, 66, 66);
+  display: flex;
+  justify-content: space-between; /* Distributes items evenly along the main axis */
+  align-items: center; /* Centers items vertically */
+  padding: 10px 20px; /* Adjust padding as needed */
+  margin-bottom: 1rem;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust spacing between nav links */
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  color: white; /* Example text color */
+}
+
+.navbar-search {
+  display: flex;
+  align-items: center; /* Centers items vertically */
+}
+
+.navbar-search input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px; /* Adjust spacing between input and button */
+}
+
+.navbar-search button {
+  background-color: #ffffff; /* Example button background color */
+  color: white; /* Example button text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.custom-dropdown {
+  appearance: none; /* Removes default appearance (may not work in all browsers) */
+  -webkit-appearance: none; /* For older versions of WebKit browsers */
+  -moz-appearance: none; /* For older versions of Firefox */
+
+  /* Reset other default styles */
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  background-color: white;
+  font-size: 14px;
+  color: #333;
+  border-radius: 4px;
+
+  width: 150px; /* Adjust width as needed */
+}
+
+.custom-dropdown:hover,
+.custom-dropdown:focus {
+  border-color: #007bff; /* Example border color on hover/focus */
+}
