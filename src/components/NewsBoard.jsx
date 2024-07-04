@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 
-export default function NewsBoard({ category }) {
+export default function NewsBoard({ searchTerm, category }) {
   let [articles, setArticles] = useState([]);
   const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
@@ -9,8 +9,12 @@ export default function NewsBoard({ category }) {
 
   useEffect(() => {
     let fetchArticles = async () => {
+      let url = DEFAULT_URL;
+      if (searchTerm) {
+        url = `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${API_KEY}`;
+      }
       try {
-        const response = await fetch(`${DEFAULT_URL}`);
+        const response = await fetch(`${url}`);
         if (!response.ok) {
           throw new Error("Network response was not ok.");
         }
@@ -21,10 +25,11 @@ export default function NewsBoard({ category }) {
       }
     };
     fetchArticles();
-  }, [category]);
+  }, [category, searchTerm]);
 
   return (
     <div>
+      <h1>LATEST NEWS</h1>
       {articles.map((news, index) => {
         return (
           <NewsItem

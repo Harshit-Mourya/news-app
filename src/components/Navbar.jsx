@@ -2,10 +2,17 @@ import "./Navbar.css";
 import searchImg from "../assets/search.png";
 import { useState } from "react";
 
-export default function Navbar({ setCategory }) {
-  const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
-  // let url = `${API_URL}?q=${searchItem}&from=2024-06-03&sortBy=publishedAt&apiKey=${API_KEY}`;
-  const API_URL = "https://newsapi.org/v2/everything";
+export default function Navbar({ setCategory, onSearch }) {
+  const [searchItem, setSearchItem] = useState("");
+
+  let handleChange = (evt) => {
+    setSearchItem(evt.target.value);
+  };
+
+  let handleSubmit = (evt) => {
+    evt.preventDefault();
+    onSearch(searchItem);
+  };
 
   return (
     <header className="Navbar">
@@ -50,7 +57,7 @@ export default function Navbar({ setCategory }) {
           </li>
         </ul>
       </div>
-      {/* <form action="" className="navbar-search" onSubmit={handleSubmit}>
+      <form className="navbar-search" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Search..."
@@ -60,7 +67,7 @@ export default function Navbar({ setCategory }) {
         <button>
           <img src={searchImg} alt="" />
         </button>
-      </form> */}
+      </form>
     </header>
   );
 }

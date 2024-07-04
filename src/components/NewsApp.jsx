@@ -4,12 +4,15 @@ import Footer from "./Footer";
 import { useState } from "react";
 
 export default function NewsApp() {
+  let [searchTerm, setSearchTerm] = useState("");
   let [category, setCategory] = useState("general");
-
+  let onSearch = (term) => {
+    setSearchTerm(term);
+  };
   return (
     <>
-      <Navbar setCategory={setCategory} />
-      <NewsBoard category={category} />
+      <Navbar onSearch={onSearch} setCategory={setCategory} />
+      <NewsBoard searchTerm={searchTerm} category={category} />
       <Footer />
     </>
   );
