@@ -4,15 +4,12 @@ import Footer from "./Footer";
 import { useState } from "react";
 
 export default function NewsApp() {
-  let [newsInfo, updateNewsInfo] = useState();
+  let [category, setCategory] = useState("general");
 
-  let updateNews = (news) => {
-    updateNewsInfo(news);
-  };
   return (
     <>
-      <Navbar updateNews={updateNews} />
-      <NewsBoard />
+      <Navbar setCategory={setCategory} />
+      <NewsBoard category={category} />
       <Footer />
     </>
   );

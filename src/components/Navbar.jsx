@@ -2,56 +2,55 @@ import "./Navbar.css";
 import searchImg from "../assets/search.png";
 import { useState } from "react";
 
-export default function Navbar({ updateNews }) {
+export default function Navbar({ setCategory }) {
   const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
-
+  // let url = `${API_URL}?q=${searchItem}&from=2024-06-03&sortBy=publishedAt&apiKey=${API_KEY}`;
   const API_URL = "https://newsapi.org/v2/everything";
-
-  let [searchItem, setSearchItem] = useState("");
-
-  let getNews = async () => {
-    try {
-      const response = await fetch(
-        `${API_URL}?q=${searchItem}&from=2024-06-03&sortBy=publishedAt&apiKey=${API_KEY}`
-      );
-      const data = await response.json();
-    } catch (err) {}
-  };
-
-  let handleChange = (evt) => {
-    setSearchItem(evt.target.value);
-  };
-
-  let handleSubmit = async (evt) => {
-    try {
-      evt.preventDefault();
-      console.log(searchItem);
-      let news = await getNews();
-      console.log(news);
-      updateNews(news);
-    } catch (err) {}
-  };
 
   return (
     <header className="Navbar">
-      <img src="" alt="Logo" />
+      <img src="" alt="Logo" onClick={() => setCategory("general")} />
       <div>
         <ul className="navbar-nav">
           <li>
-            <a href="">Home</a>
+            <div
+              onClick={() => setCategory("technology")}
+              className="navOption"
+            >
+              Technology
+            </div>
           </li>
           <li>
-            <select name="" id="" className="custom-dropdown">
-              <option value="">World</option>
-              <option value="">Business</option>
-              <option value="">Technology</option>
-              <option value="">Sports</option>
-              <option value="">Entertainment</option>
-            </select>
+            <div onClick={() => setCategory("business")} className="navOption">
+              Business
+            </div>
+          </li>
+          <li>
+            <div onClick={() => setCategory("health")} className="navOption">
+              Health
+            </div>
+          </li>
+          <li>
+            <div onClick={() => setCategory("sports")} className="navOption">
+              Sports
+            </div>
+          </li>
+          <li>
+            <div
+              onClick={() => setCategory("entertainment")}
+              className="navOption"
+            >
+              Entertainment
+            </div>
+          </li>
+          <li>
+            <div onClick={() => setCategory("science")} className="navOption">
+              Science
+            </div>
           </li>
         </ul>
       </div>
-      <form action="" className="navbar-search" onSubmit={handleSubmit}>
+      {/* <form action="" className="navbar-search" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Search..."
@@ -61,7 +60,7 @@ export default function Navbar({ updateNews }) {
         <button>
           <img src={searchImg} alt="" />
         </button>
-      </form>
+      </form> */}
     </header>
   );
 }

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import NewsItem from "./NewsItem";
 
-export default function NewsBoard() {
+export default function NewsBoard({ category }) {
   let [articles, setArticles] = useState([]);
   const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
-  const DEFAULT_URL = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${API_KEY}`;
+  const DEFAULT_URL = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${API_KEY}`;
 
   useEffect(() => {
     let fetchArticles = async () => {
@@ -20,7 +21,21 @@ export default function NewsBoard() {
       }
     };
     fetchArticles();
-  }, []);
+  }, [category]);
 
-  return <div>NewsBoard</div>;
+  return (
+    <div>
+      {articles.map((news, index) => {
+        return (
+          <NewsItem
+            key={index}
+            title={news.title}
+            description={news.description}
+            src={news.urlToImage}
+            url={news.url}
+          />
+        );
+      })}
+    </div>
+  );
 }

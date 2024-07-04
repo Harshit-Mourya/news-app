@@ -8,6 +8,7 @@
 }
 
 .navbar-nav {
+  color: white;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -16,21 +17,22 @@
   gap: 20px; /* Adjust spacing between nav links */
 }
 
-.navbar-nav a {
-  text-decoration: none;
-  color: white; /* Example text color */
+.navOption {
+  font-size: 15px;
 }
 
 .navbar-search {
   display: flex;
   align-items: center; /* Centers items vertically */
+  height: 2rem;
 }
 
 .navbar-search input[type="text"] {
-  padding: 8px;
+  padding: 0px 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 5px; /* Adjust spacing between input and button */
+  height: 2rem;
 }
 
 .navbar-search button {
@@ -40,25 +42,6 @@
   border-radius: 4px;
   cursor: pointer;
   padding: 4px 6px;
-}
-
-.custom-dropdown {
-  appearance: none; /* Removes default appearance (may not work in all browsers) */
-  -webkit-appearance: none; /* For older versions of WebKit browsers */
-  -moz-appearance: none; /* For older versions of Firefox */
-
-  /* Reset other default styles */
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  background-color: white;
-  font-size: 14px;
-  color: #333;
-  border-radius: 4px;
-
-  width: 150px; /* Adjust width as needed */
-}
-
-.custom-dropdown:hover,
-.custom-dropdown:focus {
-  border-color: #007bff; /* Example border color on hover/focus */
+  height: 2rem;
+  width: 2rem;
 }
