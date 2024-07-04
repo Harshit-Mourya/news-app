@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import searchImg from "../assets/search.png";
+import logo from "../assets/logo-news.png";
 import { useState } from "react";
 
 export default function Navbar({ setCategory, onSearch }) {
@@ -16,7 +17,12 @@ export default function Navbar({ setCategory, onSearch }) {
 
   return (
     <header className="Navbar">
-      <img src="" alt="Logo" onClick={() => setCategory("general")} />
+      <img
+        src={logo}
+        alt="Logo"
+        onClick={() => setCategory("general")}
+        className="logo"
+      />
       <div>
         <ul className="navbar-nav">
           <li>
