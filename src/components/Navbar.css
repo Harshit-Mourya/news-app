@@ -19,6 +19,13 @@
 
 .navOption {
   font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navOption:hover {
+  text-decoration: underline solid white;
+  transform: scale(1.05);
 }
 
 .navbar-search {
@@ -27,17 +34,17 @@
   height: 2rem;
 }
 
-.navbar-search input[type="text"] {
+.navbar-search input {
   padding: 0px 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-right: 5px; /* Adjust spacing between input and button */
+  margin-right: 5px;
   height: 2rem;
 }
 
 .navbar-search button {
-  background-color: #ffffff; /* Example button background color */
-  color: white; /* Example button text color */
+  background-color: #ffffff;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -49,4 +56,10 @@
 .logo {
   width: 4rem;
   height: 4rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }

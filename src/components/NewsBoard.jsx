@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
+import "./NewsBoard.css";
 
 export default function NewsBoard({ searchTerm, category }) {
   let [articles, setArticles] = useState([]);
@@ -28,8 +29,8 @@ export default function NewsBoard({ searchTerm, category }) {
   }, [category, searchTerm]);
 
   return (
-    <div>
-      <h1>LATEST NEWS</h1>
+    <div className="NewsBoard">
+      {/* <h1>LATEST NEWS</h1> */}
       {articles.map((news, index) => {
         return (
           <NewsItem
