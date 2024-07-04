@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function Navbar({ onSearch, setCategory }) {
   const [searchItem, setSearchItem] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   let handleChange = (evt) => {
     setSearchItem(evt.target.value);
@@ -26,10 +27,21 @@ export default function Navbar({ onSearch, setCategory }) {
     setCategory(category);
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header className="Navbar">
       <img src={logo} alt="Logo" onClick={handleLogoClick} className="logo" />
-      <div>
+      <div className="menu-toggle" onClick={toggleMenu}>
+        <div className="hamburger-icon">
+          <div className={menuOpen ? "bar open" : "bar"}></div>
+          <div className={menuOpen ? "bar open" : "bar"}></div>
+          <div className={menuOpen ? "bar open" : "bar"}></div>
+        </div>
+      </div>
+      <div className={`navbar-items ${menuOpen ? "open" : ""}`}>
         <ul className="navbar-nav">
           <li>
             <div

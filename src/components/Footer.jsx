@@ -7,8 +7,8 @@ export default function Footer() {
         <div className="footer-section about">
           <h2>About Us</h2>
           <p>
-            Welcome to [Your News App Name], your reliable source for staying
-            updated with the latest news and developments from around the world.
+            Welcome to NewsWave, your reliable source for staying updated with
+            the latest news and developments from around the world.
           </p>
         </div>
         <div className="footer-section links">

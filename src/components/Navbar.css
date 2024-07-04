@@ -1,20 +1,25 @@
 .Navbar {
   background-color: rgb(66, 66, 66);
   display: flex;
-  justify-content: space-between; /* Distributes items evenly along the main axis */
-  align-items: center; /* Centers items vertically */
-  padding: 10px 20px; /* Adjust padding as needed */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
   margin-bottom: 1rem;
+  color: white;
+}
+
+.navbar-items {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .navbar-nav {
-  color: white;
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 20px; /* Adjust spacing between nav links */
+  gap: 20px;
 }
 
 .navOption {
@@ -30,7 +35,7 @@
 
 .navbar-search {
   display: flex;
-  align-items: center; /* Centers items vertically */
+  align-items: center;
   height: 2rem;
 }
 
@@ -40,11 +45,11 @@
   border-radius: 4px;
   margin-right: 5px;
   height: 2rem;
+  width: 12rem;
 }
 
 .navbar-search button {
   background-color: #ffffff;
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -62,4 +67,62 @@
 
 .logo:hover {
   transform: scale(1.05);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hamburger-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.bar.open:nth-child(1),
+.bar.open:nth-child(2),
+.bar.open:nth-child(3) {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 880px) {
+  .navbar-items {
+    display: none; /* Hide navbar items by default on smaller screens */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    z-index: 1000;
+    padding: 10px;
+  }
+
+  .navbar-search input {
+    width: 8rem;
+  }
+
+  .navbar-items.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navOption {
+    padding: 10px 20px;
+  }
 }

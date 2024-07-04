@@ -7,13 +7,12 @@ export default function NewsBoard({ searchTerm, category }) {
   const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
   const DEFAULT_URL = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${API_KEY}`;
-
+  let url = DEFAULT_URL;
+  if (searchTerm) {
+    url = `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${API_KEY}`;
+  }
   useEffect(() => {
     let fetchArticles = async () => {
-      let url = DEFAULT_URL;
-      if (searchTerm) {
-        url = `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${API_KEY}`;
-      }
       try {
         const response = await fetch(`${url}`);
         if (!response.ok) {

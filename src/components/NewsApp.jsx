@@ -9,6 +9,7 @@ export default function NewsApp() {
   let onSearch = (term) => {
     setSearchTerm(term);
   };
+
   return (
     <>
       <Navbar onSearch={onSearch} setCategory={setCategory} />
