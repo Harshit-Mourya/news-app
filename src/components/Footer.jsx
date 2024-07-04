@@ -18,12 +18,12 @@ export default function Footer() {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/mourya-harshit">
                 <i className="fa-brands fa-linkedin"></i>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://github.com/Harshit-Mourya">
                 <i className="fa-brands fa-square-github"></i>
               </a>
             </li>
