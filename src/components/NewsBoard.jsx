@@ -6,10 +6,10 @@ export default function NewsBoard({ searchTerm, category }) {
   let [articles, setArticles] = useState([]);
   const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
-  const DEFAULT_URL = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${API_KEY}`;
+  const DEFAULT_URL = `https://api.currentsapi.services/v1/search?category=${category}&apiKey=${API_KEY}`;
   let url = DEFAULT_URL;
   if (searchTerm) {
-    url = `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${API_KEY}`;
+    url = `https://api.currentsapi.services/v1/search?keywords=${searchTerm}&apiKey=${API_KEY}`;
   }
   useEffect(() => {
     let fetchArticles = async () => {
@@ -20,7 +20,7 @@ export default function NewsBoard({ searchTerm, category }) {
           throw new Error("Network response was not ok.");
         }
         const data = await response.json();
-        setArticles(data.articles);
+        setArticles(data.news);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
@@ -40,7 +40,7 @@ export default function NewsBoard({ searchTerm, category }) {
               key={index}
               title={news.title}
               description={news.description}
-              src={news.urlToImage}
+              src={news.image}
               url={news.url}
             />
           );
