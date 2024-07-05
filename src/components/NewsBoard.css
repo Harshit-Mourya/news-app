@@ -3,4 +3,18 @@
   flex-wrap: wrap;
   align-items: start;
   justify-content: space-evenly;
+  background-color: bisque;
+}
+
+.news-heading {
+  background-color: bisque;
+  padding: 1rem;
+  text-align: center;
+}
+
+.news-heading span {
+  background-color: rgb(186, 0, 0);
+  color: white;
+  border-radius: 5px;
+  padding: 0 5px;
 }

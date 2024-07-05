@@ -20,11 +20,15 @@ export default function Navbar({ onSearch, setCategory }) {
 
   const handleLogoClick = () => {
     console.log("logo clicked");
+    onSearch("");
+
     setCategory("general");
   };
 
   const handleCategoryClick = (category) => {
     console.log("category clicked");
+    onSearch("");
+
     setCategory(category);
   };
 

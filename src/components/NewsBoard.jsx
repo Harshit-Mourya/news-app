@@ -14,6 +14,7 @@ export default function NewsBoard({ searchTerm, category }) {
   useEffect(() => {
     let fetchArticles = async () => {
       try {
+        console.log(searchTerm);
         const response = await fetch(`${url}`);
         if (!response.ok) {
           throw new Error("Network response was not ok.");
@@ -28,19 +29,23 @@ export default function NewsBoard({ searchTerm, category }) {
   }, [category, searchTerm]);
 
   return (
-    <div className="NewsBoard">
-      {/* <h1>LATEST NEWS</h1> */}
-      {articles.map((news, index) => {
-        return (
-          <NewsItem
-            key={index}
-            title={news.title}
-            description={news.description}
-            src={news.urlToImage}
-            url={news.url}
-          />
-        );
-      })}
-    </div>
+    <>
+      <h1 className="news-heading">
+        LATEST <span>NEWS</span>
+      </h1>
+      <div className="NewsBoard">
+        {articles.map((news, index) => {
+          return (
+            <NewsItem
+              key={index}
+              title={news.title}
+              description={news.description}
+              src={news.urlToImage}
+              url={news.url}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }
