@@ -33,6 +33,9 @@ export default function NewsBoard({ searchTerm, category }) {
       <h1 className="news-heading">
         LATEST <span>NEWS</span>
       </h1>
+      {articles.length == 0 && (
+        <h2 className="error-h2">Error: Couldn't find page &#x2718;</h2>
+      )}
       <div className="NewsBoard">
         {articles.map((news, index) => {
           return (
