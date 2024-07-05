@@ -13,6 +13,7 @@ export default function Navbar({ onSearch, setCategory }) {
 
   let handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log(searchItem);
     onSearch(searchItem);
     setSearchItem("");
   };
