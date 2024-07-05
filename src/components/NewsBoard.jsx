@@ -22,7 +22,7 @@ export default function NewsBoard({ searchTerm, category }) {
         const data = await response.json();
         setArticles(data.articles);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
       }
     };
     fetchArticles();
